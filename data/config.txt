@@ -1,0 +1,4 @@
+# color, x, y, radius
+red, 274, 80, 3
+yellow, 274, 90, 3
+green, 274, 99, 3
