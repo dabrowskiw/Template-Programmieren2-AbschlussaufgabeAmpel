@@ -11,9 +11,10 @@ Beispielbilder von einer [Webcam in Haney, die eine Ampel anzeigt](https://www.w
 ## Benotung
 
 Bei den automatischen Tests können Sie bis zu 70 Punkte erreichen:
-* ```Configuration```: 25 Punkte
-* ```FormatException```: 15 Punkte
-* ```LFAImage```: 30 Punkte
+* ```Configuration```: 15 Punkte
+* ```FormatException```: 10 Punkte
+* ```LightImage```: 30 Punkte
+* ```Light```: 15 Punkte
 
 Für die Benotung der GUI-Entwicklung laden Sie am Ende 6 Bilder hoch. Für jedes dieser Bilder gibt es 5 weitere Punkte, also insgesamt 30 Punkte für das GUI.
 
