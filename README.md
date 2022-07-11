@@ -23,13 +23,13 @@ Für die Benotung der GUI-Entwicklung laden Sie am Ende 6 Bilder hoch. Für jede
 Die Konfigurationsdatei enthält zeilenweise kommagetrennt die Informationen zu den einzelnen Ampelsignalen sowie optinal mit ```#``` beginnende Kommentarzeilen:
 
 ```text
-# color, x, y, diameter
+# color, x, y, radius
 red, 274, 80, 3
 yellow, 274, 90, 3
 green, 274, 99, 3
 ```
 
-Kommentarzeilen können beim Einlesen ignoriert werden. Die sonstigen Zeilen müssen jeweils 4 Elemente enthalten: Einen String, der die Signalfarbe bezeichnet (das kann ein beliebiger Namen sein), sowie drei Zahlen: Die x- und die y-Koordinate gefolgt von dem Durchmesser.
+Kommentarzeilen können beim Einlesen ignoriert werden. Die sonstigen Zeilen müssen jeweils 4 Elemente enthalten: Einen String, der die Signalfarbe bezeichnet (das kann ein beliebiger Namen sein), sowie drei Zahlen: Die x- und die y-Koordinate gefolgt von dem Radius.
 
 ### Configuration
 
@@ -45,7 +45,7 @@ Die Klasse ```Light``` soll die Informationen über ein Signal enthalten und die
 * ```public Light(String configline) throws FormatException```: Constructor, der eine Zeile aus der Konfigurationsdatei bekommt und die entsprechenden Daten in dem neuen Objekt speichert. Wirft eine ```FormatException``` mit der entsprechenden Meldung, falls:
     * Keine 4 Elemente in der Zeile vorhanden sind: "Wrong number of elements."
     * Die X- oder Y-Koordinate keine Zahl ist: "Could not parse WERT as coordinate (need an integer)."
-    * Der Durchmesser keine Zahl ist: "Could not parse WERT as radius (need an integer)."
+    * Der Radius keine Zahl ist: "Could not parse WERT as radius (need an integer)."
 * Getter für die Koordinaten, den Radius und den Namen
     
 ### FormatException
