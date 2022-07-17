@@ -23,13 +23,13 @@ Für die Benotung der GUI-Entwicklung laden Sie am Ende 6 Bilder hoch. Für jede
 Die Konfigurationsdatei enthält zeilenweise kommagetrennt die Informationen zu den einzelnen Ampelsignalen sowie optinal mit ```#``` beginnende Kommentarzeilen:
 
 ```text
-# color, x, y, diameter
+# color, x, y, radius
 red, 274, 80, 3
 yellow, 274, 90, 3
 green, 274, 99, 3
 ```
 
-Kommentarzeilen können beim Einlesen ignoriert werden. Die sonstigen Zeilen müssen jeweils 4 Elemente enthalten: Einen String, der die Signalfarbe bezeichnet (das kann ein beliebiger Namen sein), sowie drei Zahlen: Die x- und die y-Koordinate gefolgt von dem Durchmesser.
+Kommentarzeilen können beim Einlesen ignoriert werden. Die sonstigen Zeilen müssen jeweils 4 Elemente enthalten: Einen String, der die Signalfarbe bezeichnet (das kann ein beliebiger Namen sein), sowie drei Zahlen: Die x- und die y-Koordinate gefolgt von dem Radius.
 
 ### Configuration
 
@@ -43,9 +43,9 @@ Implementieren Sie dafür die Hilfsklassen ```Light``` sowie ```FormatException`
 
 Die Klasse ```Light``` soll die Informationen über ein Signal enthalten und die folgenden Methoden enthalten:
 * ```public Light(String configline) throws FormatException```: Constructor, der eine Zeile aus der Konfigurationsdatei bekommt und die entsprechenden Daten in dem neuen Objekt speichert. Wirft eine ```FormatException``` mit der entsprechenden Meldung, falls:
-    * Keine 4 Elemente in der Zeile vorhanden sind: "Wrong number of elements.
+    * Keine 4 Elemente in der Zeile vorhanden sind: "Wrong number of elements."
     * Die X- oder Y-Koordinate keine Zahl ist: "Could not parse WERT as coordinate (need an integer)."
-    * Der Durchmesser keine Zahl ist: "Could not parse WERT as radius (need an integer)."
+    * Der Radius keine Zahl ist: "Could not parse WERT as radius (need an integer)."
 * Getter für die Koordinaten, den Radius und den Namen
     
 ### FormatException
@@ -59,7 +59,7 @@ Die Klasse ```FormatException``` leitet von Exception ab und beinhaltet die Info
 ## Einlesen und Analysieren eines Bildes
 
 Implementieren Sie nun zum Einlesen und Analysieren eines einzelnen Bildes die Klasse ```LightImage``` mit den folgenden Methoden:
-* ```public LFAImage(File imagefile) throws IOException```: Constructor, liest das Bild in ```imagefile``` als ```BufferedImage``` ein. Falls beim Einlesen eine ```IOException``` auftritt, soll diese weitergeworfen werden.
+* ```public LightImage(File imagefile) throws IOException```: Constructor, liest das Bild in ```imagefile``` als ```BufferedImage``` ein. Falls beim Einlesen eine ```IOException``` auftritt, soll diese weitergeworfen werden.
 * ```public BufferedImage getImage()```: Gibt das BufferedImage für das eingelesene Bild zurück.
 * ```public double getLightIntensity(Light light)```: Gibt die **durchschnittliche** Intensität der Pixelwerte innerhalb der Koordinaten des übergebenen ```Light```-Objekts in dem Bild zurück. Die Intensität eines Pixelwerts ist dabei definiert als die Summe der Rot-, Grün- und Blau-Werte des Pixels.
 * ```public boolean isInLight(int x, int y, Light light)```: Hilfsfunktion, die bestimmt, ob ein Punkt mit den übergebenen x- und y-Koordinaten innerhalb der Koordinaten des übergebenen ```Light```-Objekts liegt (also innerhalb eines Kreises mit dem angegebenen Radius um die angegebenen Koordinaten des Lichtsignals).
