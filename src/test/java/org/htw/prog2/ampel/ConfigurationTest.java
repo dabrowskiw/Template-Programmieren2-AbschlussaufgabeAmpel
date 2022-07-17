@@ -49,7 +49,7 @@ class ConfigurationTest {
         try {
             Configuration c = new Configuration(new File("coords_dNotInt.txt"));
         } catch(FormatException e) {
-            assertEquals("Wrong format in line 'green, 274, 99, d': Could not parse d as diameter (need an integer).",
+            assertEquals("Wrong format in line 'green, 274, 99, r': Could not parse d as radius (need an integer).",
                     e.getMessage());
         } catch(IOException e) {
             fail("Should now throw an IOException");
